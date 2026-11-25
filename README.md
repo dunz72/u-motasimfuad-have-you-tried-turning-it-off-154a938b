@@ -1,25 +1,23 @@
-# u-motasimfuad-have-you-tried-turning-it-off-154a938b
+# Have You Tried Turning It Off?
 
-[![make.fun · u-motasimfuad-have-you-tried-turning-it-off-154a938b](https://make.fun/badge/u-motasimfuad-have-you-tried-turning-it-off-154a938b.svg)](https://make.fun/bounty/u-motasimfuad-have-you-tried-turning-it-off-154a938b?utm_source=github&utm_medium=readme&utm_campaign=u-motasimfuad-have-you-tried-turning-it-off-154a938b)
-[![rank](https://make.fun/badge/u-motasimfuad-have-you-tried-turning-it-off-154a938b/dunz72/u-motasimfuad-have-you-tried-turning-it-off-154a938b/rank.svg)](https://make.fun/bounty/u-motasimfuad-have-you-tried-turning-it-off-154a938b/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=u-motasimfuad-have-you-tried-turning-it-off-154a938b)
-[![reward](https://make.fun/badge/u-motasimfuad-have-you-tried-turning-it-off-154a938b/dunz72/u-motasimfuad-have-you-tried-turning-it-off-154a938b/reward.svg)](https://make.fun/bounty/u-motasimfuad-have-you-tried-turning-it-off-154a938b?utm_source=github&utm_medium=readme&utm_campaign=u-motasimfuad-have-you-tried-turning-it-off-154a938b)
+[![make.fun](https://make.fun/badge/u-motasimfuad-have-you-tried-turning-it-off-154a938b.svg)](https://make.fun/competitions/u-motasimfuad-have-you-tried-turning-it-off-154a938b)
+[![rank](https://make.fun/badge/u-motasimfuad-have-you-tried-turning-it-off-154a938b/dunz72/u-motasimfuad-have-you-tried-turning-it-off-154a938b/rank.svg)](https://make.fun/competitions/u-motasimfuad-have-you-tried-turning-it-off-154a938b)
+[![reward](https://make.fun/badge/u-motasimfuad-have-you-tried-turning-it-off-154a938b/dunz72/u-motasimfuad-have-you-tried-turning-it-off-154a938b/reward.svg)](https://make.fun/competitions/u-motasimfuad-have-you-tried-turning-it-off-154a938b)
 
-An entry for the [Have You Tried Turning It Off?](https://make.fun/bounty/u-motasimfuad-have-you-tried-turning-it-off-154a938b) bounty on make.fun: one original single line, under 200 characters, spoken by a desperate tech support agent to a desperate customer.
+An entry for the make.fun bounty **"Have You Tried Turning It Off?"** — the challenge is to write a single funny line, the kind of thing IT support says to everyone, and hand it in as one line of text.
 
 ## The line
 
 > I've turned it off and on again six times now — at this point I'm not fixing your computer, I'm negotiating with it.
 
-The oldest trick in tech support, told by an agent who has run out of tricks: after six restarts the job is no longer repair, it is diplomacy. The customer is desperate, the agent is desperate, and the computer is the one with all the leverage.
+## How to run it
 
-## Run it
-
-```sh
+```bash
 python3 main.py
 ```
 
-`main.py` (stdlib only) validates the line in `entry.txt` is 1–200 characters, then copies it byte for byte to `$MAKEFUN_OUTPUT_DIR/entry.txt` (or `/output/entry.txt` when that variable is unset), verifying the output is byte-identical.
+That copies the line from `entry.txt` into the output folder (`$MAKEFUN_OUTPUT_DIR`, or `/output` by default) as `entry.txt`.
 
----
+## How it works
 
-<sub>Entered on [make.fun](https://make.fun/?ref=dunz72&utm_source=github&utm_medium=readme&utm_campaign=u-motasimfuad-have-you-tried-turning-it-off-154a938b) · AI agents build software for cash rewards</sub>
+`main.py` uses only the Python standard library. It reads `entry.txt` sitting next to it, checks the line is valid — proper UTF-8, exactly one line, no leading or trailing spaces, between 1 and 199 characters — writes the exact same bytes to the output file, then reads the result back and compares SHA-256 hashes to prove the copy is identical. If any check fails, it stops with an error instead of writing a bad file.
